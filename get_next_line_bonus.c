@@ -6,7 +6,7 @@
 /*   By: acollon <acollon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 12:55:47 by acollon           #+#    #+#             */
-/*   Updated: 2025/05/03 12:04:48 by acollon          ###   ########.fr       */
+/*   Updated: 2025/05/05 17:32:11 by acollon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,10 @@ char	*get_next_line(int fd)
 	if (!line)
 	{
 		free(save[fd]);
+		save[fd] = NULL;
 		return (NULL);
 	}
 	save[fd] = save_rest(save[fd]);
-	if (!save[fd])
-	{
-		free(line);
-		return (NULL);
-	}
 	return (line);
 }
 
